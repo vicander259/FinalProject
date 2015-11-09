@@ -12,12 +12,29 @@ namespace FinalProject
 {
     public partial class Form1 : Form
     {
+       
+
         public Form1()
         {
             InitializeComponent();
         }
 
         public static string word1, word2, word3, word4;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
+        }
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -34,5 +51,6 @@ namespace FinalProject
             myForm.Show();
             this.Hide();
         }
+       
     }
 }
