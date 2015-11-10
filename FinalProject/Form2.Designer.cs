@@ -69,6 +69,7 @@
             this.button26 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -202,11 +203,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(520, 374);
+            this.label3.Location = new System.Drawing.Point(508, 374);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 12;
-            this.label3.Text = "label3";
+            this.label3.Text = "TestingLabel";
             // 
             // button2
             // 
@@ -451,11 +452,22 @@
             this.button28.Text = "Z";
             this.button28.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(147, 457);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(544, 57);
+            this.label4.TabIndex = 40;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1391, 623);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button28);
             this.Controls.Add(this.button27);
             this.Controls.Add(this.button26);
@@ -498,6 +510,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -552,5 +565,6 @@
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.Label label4;
     }
 }
