@@ -17,41 +17,65 @@ namespace FinalProject
             InitializeComponent();
         }
 
-        string A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
-        int word1Length = Form1.word1.Length;
-        string blank;
-
-        private void Form2_Load(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            string word1 = Form1.word1;
-            word1 = word1.ToUpper();
-            label3.Text = word1; //word1Length.ToString();
-            AddLabels();
+            Application.Exit();
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        int word1Length = Form1.word1.Length;
+        string blankLetters;
+        string letterGuess;
+        List<Label> labels = new List<Label>();
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            letterGuess = textBox1.Text;
+        }
+           
+               
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            makeLabels();
             /* string word1 = Form1.word1;
              word1 = word1.ToUpper();
              label3.Text = word1; //word1Length.ToString();
-             AddLabels(); */
+             AddLabels();/
+             */
         }
+                
 
         public void AddLabels()
         {
-
             for (int i = 0; i < word1Length; i++)
             {
-                blank += " - ";
+                blankLetters += " - ";
             }
-            label4.Text = blank;
+            label4.Text = blankLetters;
         }
 
-        public void CheckLetters()
+        private void makeLabels()
         {
+            string word1 = Form1.word1;
+            word1 = word1.ToUpper();
+            word1.Replace(" ", "");
 
+            char[] letters = word1.ToCharArray();
+            int space = 110/ letters.Length - 1;
+
+            for (int i = 0; i < letters.Length; i++)
+            {
+                labels.Add(new Label());
+                labels[i].Location = new Point((i * space) + 10, 109);
+                labels[i].Parent = groupBox1;
+                labels[i].Text = "_";
+                labels[i].BringToFront();
+                labels[i].CreateControl();
+            }            
         }
     }
 }
