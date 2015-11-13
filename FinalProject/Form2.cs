@@ -28,44 +28,31 @@ namespace FinalProject
         }
 
         int word1Length = Form1.word1.Length;
-        string blankLetters;
+       //string blankLetters;
         string letterGuess;
+        string word1 = Form1.word1.ToUpper();
         List<Label> labels = new List<Label>();
-
+       
+        
         private void button2_Click(object sender, EventArgs e)
         {
-            letterGuess = textBox1.Text;
+            checkLetters();
         }
            
                
         private void Form2_Load(object sender, EventArgs e)
         {
             makeLabels();
-            /* string word1 = Form1.word1;
-             word1 = word1.ToUpper();
-             label3.Text = word1; //word1Length.ToString();
-             AddLabels();/
-             */
         }
-                
-
-        public void AddLabels()
+                      
+        public void makeLabels()
         {
-            for (int i = 0; i < word1Length; i++)
-            {
-                blankLetters += " - ";
-            }
-            label4.Text = blankLetters;
-        }
-
-        private void makeLabels()
-        {
-            string word1 = Form1.word1;
+            
             word1 = word1.ToUpper();
             word1.Replace(" ", "");
 
             char[] letters = word1.ToCharArray();
-            int space = 110/ letters.Length - 1;
+            int space = 200/ letters.Length - 1;
 
             for (int i = 0; i < letters.Length; i++)
             {
@@ -77,5 +64,38 @@ namespace FinalProject
                 labels[i].CreateControl();
             }            
         }
-    }
+
+        public void checkLetters()
+        {
+           ;
+           letterGuess = textBox1.Text.ToUpper();
+            label3.Text = letterGuess;
+           
+            if (listBox1.Items.Contains(letterGuess) == true)
+            {
+                MessageBox.Show("you already picked that letter");
+            }
+            else
+            {
+                listBox1.Items.Add(letterGuess);
+            }
+
+            if (word1.Contains(letterGuess))
+            {
+                for (int j = 0; j < word1Length; j++)
+                {
+                    if (word1[j].ToString() == letterGuess)
+                    {
+                        label3.Text = word1[j].ToString();
+                        labels[j].Text = word1[j].ToString();
+                    }
+                }
+                                         
+            }
+              else if (word1.Contains(letterGuess) == false)
+            {
+                MessageBox.Show("That letter is not in the word");
+            }         
+          }
+     }
 }
