@@ -10,58 +10,50 @@ using System.Windows.Forms;
 
 namespace FinalProject
 {
-    public partial class Form2 : Form
+    public partial class Form5 : Form
     {
-        public Form2()
+        public Form5()
         {
             InitializeComponent();
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        int incorrectCount = 0;
         int correctCount = 0;
-        int word1Length = Form1.word1.Length;
-       //string blankLetters;
+        int count = 0;
+        int word4Length = Form1.word4.Length;
+        //string blankLetters;
         string letterGuess;
-        string word1 = Form1.word1.ToUpper();
+        string word4 = Form1.word4.ToUpper();
         List<Label> labels = new List<Label>();
-       
-        
+
         private void button2_Click(object sender, EventArgs e)
         {
             checkLetters();
-            if (correctCount == word1Length)
+            if (correctCount == word4Length)
             {
                 label5.Text = "You Win!";
                 button2.Enabled = false;
                 textBox1.Enabled = false;
             }
         }
-           
-               
-        private void Form2_Load(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form5_Load(object sender, EventArgs e)
         {
             makeLabels();
-            label4.Text = word1Length.ToString();
+            label4.Text = word4Length.ToString();
         }
-                      
+
         public void makeLabels()
         {
-            
-            word1 = word1.ToUpper();
-            word1.Replace(" ", "");
 
-            char[] letters = word1.ToCharArray();
-            int space = 200/ letters.Length - 1;
+            word4 = word4.ToUpper();
+            word4.Replace(" ", "");
+
+            char[] letters = word4.ToCharArray();
+            int space = 200 / letters.Length - 1;
 
             for (int i = 0; i < letters.Length; i++)
             {
@@ -71,14 +63,14 @@ namespace FinalProject
                 labels[i].Text = "_";
                 labels[i].BringToFront();
                 labels[i].CreateControl();
-            }            
+            }
         }
 
         public void checkLetters()
         {
-           letterGuess = textBox1.Text.ToUpper();
-           
-           
+            letterGuess = textBox1.Text.ToUpper();
+
+
             if (listBox1.Items.Contains(letterGuess) == true)
             {
                 MessageBox.Show("you already picked that letter");
@@ -88,70 +80,53 @@ namespace FinalProject
                 listBox1.Items.Add(letterGuess);
             }
 
-            if (word1.Contains(letterGuess))
+            if (word4.Contains(letterGuess))
             {
-                for (int j = 0; j < word1Length; j++)
+                for (int j = 0; j < word4Length; j++)
                 {
-                    if (word1[j].ToString() == letterGuess)
+                    if (word4[j].ToString() == letterGuess)
                     {
-                        labels[j].Text = word1[j].ToString();
-                        correctCount += 1;
+                        labels[j].Text = word4[j].ToString();
+                        correctCount += 1; 
                     }
                 }
-                                         
+
             }
-              else if (word1.Contains(letterGuess) == false)
+            else if (word4.Contains(letterGuess) == false)
             {
-                incorrectCount++;
-                MessageBox.Show("That letter is not in the word");                               
+                count++;
+                MessageBox.Show("That letter is not in the word");
             }
 
-            if (incorrectCount == 1)
+            if (count == 1)
             {
                 pictureBox2.Visible = true;
             }
-            else if (incorrectCount == 2)
+            else if (count == 2)
             {
                 pictureBox3.Visible = true;
             }
-            else if (incorrectCount == 3)
+            else if (count == 3)
             {
                 pictureBox4.Visible = true;
             }
-            else if (incorrectCount == 4)
+            else if (count == 4)
             {
                 pictureBox5.Visible = true;
             }
-            else if (incorrectCount == 5)
+            else if (count == 5)
             {
                 pictureBox6.Visible = true;
             }
-            else if (incorrectCount == 6)
+            else if (count == 6)
             {
                 pictureBox7.Visible = true;
                 MessageBox.Show("You lose");
                 button2.Enabled = false;
                 textBox1.Enabled = false;
-                label5.Text = word1;
-            } 
-            
-        }
+                label5.Text = word4;
+            }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form3 myForm = new Form3();
-            myForm.Show();
-            this.Close();
         }
     }
 }
