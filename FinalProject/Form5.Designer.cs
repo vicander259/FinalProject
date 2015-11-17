@@ -66,8 +66,9 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 51);
             this.button3.TabIndex = 102;
-            this.button3.Text = "Play Next Round";
+            this.button3.Text = "Finish Game";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label5
             // 
@@ -76,7 +77,7 @@
             this.label5.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.label5.Location = new System.Drawing.Point(730, 281);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 60);
+            this.label5.Size = new System.Drawing.Size(208, 60);
             this.label5.TabIndex = 101;
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

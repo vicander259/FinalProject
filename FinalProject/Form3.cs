@@ -16,6 +16,7 @@ namespace FinalProject
         {
             InitializeComponent();
         }
+        public static int wordCount; 
         int correctCount = 0;
         int count = 0;
         int word2Length = Form1.word2.Length;
@@ -37,6 +38,7 @@ namespace FinalProject
                 label5.Text = "You Win!";
                 button2.Enabled = false;
                 textBox1.Enabled = false;
+                wordCount++;
             }
         }
 
@@ -49,6 +51,7 @@ namespace FinalProject
         {
             makeLabels();
             label4.Text = word2Length.ToString();
+            wordCount = Form2.wordCount;
         }
 
         public void makeLabels()

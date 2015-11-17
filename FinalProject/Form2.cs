@@ -26,13 +26,13 @@ namespace FinalProject
         {
 
         }
-
+        public static int wordCount = 0;
         int incorrectCount = 0;
         int correctCount = 0;
         int word1Length = Form1.word1.Length;
-       //string blankLetters;
         string letterGuess;
         string word1 = Form1.word1.ToUpper();
+        //make a list to add generated labels to so they can be found and accessed later
         List<Label> labels = new List<Label>();
        
         
@@ -44,6 +44,7 @@ namespace FinalProject
                 label5.Text = "You Win!";
                 button2.Enabled = false;
                 textBox1.Enabled = false;
+                wordCount++;
             }
         }
            
@@ -59,17 +60,26 @@ namespace FinalProject
             
             word1 = word1.ToUpper();
             word1.Replace(" ", "");
-
+            //take the letters of a word and put them in an array. specifically the "Character" array
             char[] letters = word1.ToCharArray();
-            int space = 200/ letters.Length - 1;
+            
+            //the location of where the new labels appear
+            int space = 200/letters.Length - 1;
 
+            //for loop to create the same amount of labels as there are letters in the word
             for (int i = 0; i < letters.Length; i++)
             {
+                //create the labels and add them to the list
                 labels.Add(new Label());
+                //location of the labels
                 labels[i].Location = new Point((i * space) + 10, 109);
+                //grouping of labels to make them show up together
                 labels[i].Parent = groupBox1;
+                //have the text of the labels show underscores to represent amount of letters
                 labels[i].Text = "_";
+                //bring the labels to the front of the groupBox
                 labels[i].BringToFront();
+                //create a control for each label so you can edit them in code
                 labels[i].CreateControl();
             }            
         }
@@ -88,12 +98,17 @@ namespace FinalProject
                 listBox1.Items.Add(letterGuess);
             }
 
+
+
             if (word1.Contains(letterGuess))
             {
+                //for loop to run through each label and check if it contains the letter that was guessed
                 for (int j = 0; j < word1Length; j++)
                 {
+                    //checks to see if the letter guessed is anywhere in the word
                     if (word1[j].ToString() == letterGuess)
                     {
+                        //changes the label containing the underscore to the letter that is in the word at that index
                         labels[j].Text = word1[j].ToString();
                         correctCount += 1;
                     }
@@ -105,6 +120,8 @@ namespace FinalProject
                 incorrectCount++;
                 MessageBox.Show("That letter is not in the word");                               
             }
+
+
 
             if (incorrectCount == 1)
             {

@@ -77,7 +77,7 @@
             this.label5.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.label5.Location = new System.Drawing.Point(697, 274);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 60);
+            this.label5.Size = new System.Drawing.Size(208, 60);
             this.label5.TabIndex = 82;
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

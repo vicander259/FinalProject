@@ -16,10 +16,10 @@ namespace FinalProject
         {
             InitializeComponent();
         }
+        public static int wordCount;
         int correctCount = 0;
         int count = 0;
         int word3Length = Form1.word3.Length;
-        //string blankLetters;
         string letterGuess;
         string word3 = Form1.word3.ToUpper();
         List<Label> labels = new List<Label>();
@@ -32,6 +32,7 @@ namespace FinalProject
                 label5.Text = "You Win!";
                 button2.Enabled = false;
                 textBox1.Enabled = false;
+                wordCount++;
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +44,7 @@ namespace FinalProject
         {
             makeLabels();
             label4.Text = word3Length.ToString();
+            wordCount = Form3.wordCount;
         }
 
         public void makeLabels()
