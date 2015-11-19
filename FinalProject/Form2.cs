@@ -26,6 +26,7 @@ namespace FinalProject
         {
 
         }
+
         public static int wordCount = 0;
         int incorrectCount = 0;
         int correctCount = 0;
@@ -60,10 +61,10 @@ namespace FinalProject
             
             word1 = word1.ToUpper();
             word1.Replace(" ", "");
-            //take the letters of a word and put them in an array. specifically the "Character" array
+            //take the letters of a word and put them in an array, specifically the "Character" array
             char[] letters = word1.ToCharArray();
             
-            //the location of where the new labels appear
+            //the formula for location of where the new labels appear
             int space = 200/letters.Length - 1;
 
             //for loop to create the same amount of labels as there are letters in the word

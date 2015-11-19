@@ -20,7 +20,6 @@ namespace FinalProject
         int correctCount = 0;
         int count = 0;
         int word2Length = Form1.word2.Length;
-        //string blankLetters;
         string letterGuess;
         string word2 = Form1.word2.ToUpper();
         List<Label> labels = new List<Label>();
